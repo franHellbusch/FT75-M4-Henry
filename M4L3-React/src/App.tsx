@@ -1,8 +1,17 @@
 import './App.css'
+import Greeting from './components/Greeting/Greeting'
+import ItemList from './components/ItemList/ItemList'
+import PageLayout from './components/PageLayout/PageLayout'
 
 function App() {
   return (
-    <h1>Hola mundo</h1>
+    <PageLayout>
+      <h1>Mi Aplicacion</h1>
+      <p>Contenido principal.</p>
+
+      <Greeting name='' />
+      <ItemList />
+    </PageLayout>
   )
 }
 
