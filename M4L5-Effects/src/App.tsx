@@ -1,16 +1,23 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import TaskList from './components/TaskList/TaskList'
 import type { Task } from './types/task'
 import TaskForm from './components/TaskForm/TaskForm';
 
-const initialTasks: Task[] = [
-  { text: "Aprender React", completed: true },
-  { text: "Construir la TODO App", completed: false },
-];
-
 function App() {
-  const [tasks, setTasks] = useState<Task[]>(initialTasks)
+  const [tasks, setTasks] = useState<Task[]>(() => {
+    const stored = localStorage.getItem("tasks");
+    return stored ? JSON.parse(stored) : [];
+  })
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+  useEffect(() => {
+    const pendientes = tasks.filter(t => !t.completed).length;
+    document.title = pendientes > 0 ? `TODO App (${pendientes} pendientes)` : "TODO App";
+  }, [tasks])
 
   const handleAddTask = (text: string) => {
     const newTask: Task = {
