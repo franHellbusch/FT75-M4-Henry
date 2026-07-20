@@ -1,0 +1,53 @@
+/* Tarjeta centrada para la pagina de login */
+.login-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+    max-width: 320px;
+    margin: 2rem auto;
+}
+
+/* Texto de sesion activa */
+.login-info {
+    margin-bottom: 1rem;
+    color: var(--text-main);
+    font-size: 0.9rem;
+}
+
+/* Mensaje de redireccion cuando hay un from */
+.login-redirect {
+    color: var(--text-done);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+/* Boton principal de login */
+.login-btn {
+    background: var(--indigo);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.625rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+    width: 100%;
+}
+
+.login-btn:hover {
+    background: var(--indigo-dark);
+}
+
+/* Variante de logout con estilo neutro */
+.login-btn.logout {
+    background: var(--border);
+    color: var(--text-main);
+}
+
+.login-btn.logout:hover {
+    background: #d1d5db;
+}
