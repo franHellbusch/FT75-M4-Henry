@@ -1,30 +1,75 @@
-/* Tarjeta centrada para la pagina de login */
 .login-card {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2rem;
+    border-radius: 16px;
+    padding: 2.25rem 2rem;
     text-align: center;
     box-shadow: var(--shadow-card);
-    max-width: 320px;
+    max-width: 360px;
     margin: 2rem auto;
 }
 
-/* Texto de sesion activa */
 .login-info {
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     color: var(--text-main);
     font-size: 0.9rem;
 }
 
-/* Mensaje de redireccion cuando hay un from */
 .login-redirect {
     color: var(--text-done);
     font-size: 0.875rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
 }
 
-/* Boton principal de login */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+}
+
+.login-form__field {
+    text-align: left;
+}
+
+.login-form__input {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    background: var(--surface);
+    transition: border-color 0.15s, box-shadow 0.15s;
+    outline: none;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.login-form__input:focus {
+    border-color: var(--indigo);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.login-form__input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: var(--bg);
+}
+
+.login-form__error {
+    color: #b00020;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    text-align: left;
+}
+
+.login-form__success {
+    color: var(--success);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
 .login-btn {
     background: var(--indigo);
     color: #fff;
@@ -34,20 +79,42 @@
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.15s;
+    transition: background 0.15s, opacity 0.15s;
     width: 100%;
+    margin-top: 0.25rem;
 }
 
-.login-btn:hover {
+.login-btn:hover:not(:disabled) {
     background: var(--indigo-dark);
 }
 
-/* Variante de logout con estilo neutro */
-.login-btn.logout {
+.login-btn--loading,
+.login-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.login-btn--logout {
     background: var(--border);
     color: var(--text-main);
 }
 
-.login-btn.logout:hover {
+.login-btn--logout:hover:not(:disabled) {
     background: #d1d5db;
+}
+
+.login-form__register {
+    font-size: 0.875rem;
+    color: var(--text-done);
+    margin-top: 0.25rem;
+}
+
+.login-form__register a {
+    color: var(--indigo);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-form__register a:hover {
+    text-decoration: underline;
 }

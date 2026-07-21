@@ -17,3 +17,26 @@
     text-decoration: line-through;
     color: var(--text-done);
 }
+
+.task-item__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    flex: 1;
+}
+
+.task-item__title {
+    font-weight: 500;
+    color: var(--text-main);
+    font-size: 0.9rem;
+}
+
+.task-item--done .task-item__title {
+    text-decoration: line-through;
+    color: var(--text-done);
+}
+
+.task-item__description {
+    font-size: 0.78rem;
+    color: var(--text-done);
+}

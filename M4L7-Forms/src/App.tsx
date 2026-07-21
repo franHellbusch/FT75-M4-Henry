@@ -24,12 +24,8 @@ function App() {
     document.title = pendientes > 0 ? `TODO App (${pendientes} pendientes)` : "TODO App";
   }, [tasks])
 
-  const handleAddTask = (text: string) => {
-    const newTask: Task = {
-      text,
-      completed: false
-    }
-
+  const handleAddTask = (formData: { title: string; description: string }) => {
+    const newTask: Task = { ...formData, completed: false };
     setTasks(prev => [...prev, newTask])
   }
 
