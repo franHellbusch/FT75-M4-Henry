@@ -1,0 +1,13 @@
+.joke-loading {
+    color: var(--text-done);
+    font-style: italic;
+}
+
+.joke-error {
+    color: #ef4444;
+}
+
+.joke-text {
+    font-style: italic;
+    line-height: 1.7;
+}
