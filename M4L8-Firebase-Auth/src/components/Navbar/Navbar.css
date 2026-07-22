@@ -1,0 +1,24 @@
+/* Barra de navegacion principal */
+.navbar {
+    display: flex;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+}
+
+/* Links de navegacion con estilo indigo */
+.navbar-link {
+    color: var(--indigo);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    transition: background 0.15s;
+}
+
+/* Hover con fondo suave */
+.navbar-link:hover {
+    background: var(--indigo-light);
+}
