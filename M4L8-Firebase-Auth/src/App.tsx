@@ -5,11 +5,11 @@ import type { Task } from './types/task'
 import TaskForm from './components/TaskForm/TaskForm';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
-import Login from './pages/Login/Login';
 import RequireAuth from './components/RequireAuth/RequireAuth';
+import LoginPage from './pages/LoginPage/LoginPage';
+import Register from './pages/Register/Register';
 
 function App() {
-  const [user, setUser] = useState<{ email: string; uid: string } | null>(null)
   const [tasks, setTasks] = useState<Task[]>(() => {
     const stored = localStorage.getItem("tasks");
     return stored ? JSON.parse(stored) : [];
@@ -35,7 +35,7 @@ function App() {
       <Navbar />
       <Routes>
         {/* rutas privadas */}
-        <Route element={<RequireAuth user={user} />}>
+        <Route element={<RequireAuth />}>
           <Route path='/' element={
             <>
               <TaskForm onAddTask={handleAddTask} />
@@ -51,9 +51,8 @@ function App() {
         </Route>
 
         {/* Rutas publicas */}
-        <Route path='/login' element={
-          <Login user={user} onLogin={setUser} onLogout={() => setUser(null)} />
-        } />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </div>
   )

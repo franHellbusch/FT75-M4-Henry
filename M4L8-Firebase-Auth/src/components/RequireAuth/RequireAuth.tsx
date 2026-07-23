@@ -1,11 +1,11 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { useAuth } from "../../features/auth/Authenticator";
 
-interface RequireAuthProps {
-    user: { email: string; uid: string } | null;
-}
-
-function RequireAuth({ user }: RequireAuthProps) {
+function RequireAuth() {
+    const { user, loading } = useAuth();
     const location = useLocation();
+
+    if (loading) return <p className="loading-session">Cargando sesion...</p>;
     if (!user) {
         return <Navigate to="/login" state={{ from: location }} replace />
     }
